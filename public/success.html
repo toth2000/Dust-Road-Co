@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="login" style="text-align: center">
+      You Have Logged In Successfully !
+      <button id="logout__btn">logout</button>
+    </h2>
+    <script>
+        document.getElementById('logout__btn').addEventListener('click', function(){
+            sessionStorage.removeItem('payload');
+            window.location.href = "/login";
+        });
+    </script>
+    <script>
+      // Fetching payload from sessionStorage
+      const payload = sessionStorage.getItem("payload");
+      // Checking if the payload is available or not
+      if (payload) {
+        // If the payload is available then console.log the payload
+        console.log("Payload : " + payload);
+      } else {
+        // If the payload isn't available, that means the user hasn't logged in yet.
+        // So redirecting back to "/login"
+        window.location.href = "/login";
+      }
+    </script>
+  </body>
+</html>
